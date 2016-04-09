@@ -14,25 +14,15 @@
 // 检测PHP环境
 if(version_compare(PHP_VERSION,'5.3.0','<'))  die('require PHP > 5.3.0 !');
 
+define("ROOT_PATH", __DIR__."/");
 // 开启调试模式 建议开发阶段开启 部署阶段注释或者设为false
 define('APP_DEBUG',True);
 
 // 定义应用目录
-define('APP_PATH','./Application/');
+define('APP_PATH',ROOT_PATH.'./Application/');
 
 // 引入ThinkPHP入口文件
-require './ThinkPHP/ThinkPHP.php';
-
-//定义资源服务器的常量
-define("SRC_URL", "http://www.testphp.com/day01/");
-
-return array(
-    'TMPL_PARSE_STRING' =>array(
-        '__IMG__' =>SRC_URL.'/Public/'.MODULE_NAME.'/Images',
-        '__CSS__' =>SRC_URL.'/Public/'.MODULE_NAME.'/Css',
-        '__JS__' =>SRC_URL.'/Public/'.MODULE_NAME.'/Js'
-    )
-);
+require ROOT_PATH.'../ThinkPHP/ThinkPHP.php';
 
 
 // 亲^_^ 后面不需要任何代码了 就是如此简单
